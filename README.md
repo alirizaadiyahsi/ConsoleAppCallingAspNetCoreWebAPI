@@ -1,5 +1,7 @@
 # Console App Calling Asp.Net Core WebAPI
-A sample .net core console app that calling a asp.net core wep api.
+A sample .net core console app that calling an asp.net core wep api. 
+
+Here is the complete explanation how to develop a console application that call the asp.net core web api.
 
 **Model (`User.cs`)**
 
