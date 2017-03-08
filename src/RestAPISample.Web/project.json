@@ -53,7 +53,7 @@
   },
 
   // user code:
-  // to fix build errors
+  // to fix build errors for win7
   "runtimes": {
     "win7-x64": {}
   }
