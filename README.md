@@ -43,43 +43,41 @@ public class UserController : Controller
 **Console app (`Program.cs`)**
 
 ```csharp
-public class Program
-{
-    public static void Main(string[] args)
+    public class Program
     {
-        HttpClient client = new HttpClient();
-
-        client.BaseAddress = new Uri("http://localhost:54741/");
-        client.DefaultRequestHeaders.Accept.Clear();
-        client.DefaultRequestHeaders.Accept.Add(new System.Net.Http.Headers.MediaTypeWithQualityHeaderValue("application/json"));
-
-        var users = GetUsers(client);
-
-        foreach (var item in users.Result)
+        public static void Main(string[] args)
         {
-            Console.WriteLine(item.Id + " " + item.Name);
-        }
+            var users = GetUsers();
 
-        Console.ReadLine();
-    }
-
-    static async Task<List<User>> GetUsers(HttpClient client)
-    {
-        var users = new List<User>();
-
-        using (client)
-        {
-            HttpResponseMessage response = await client.GetAsync("api/user");
-            response.EnsureSuccessStatusCode();
-            if (response.IsSuccessStatusCode)
+            foreach (var item in users.Result)
             {
-                users = await response.Content.ReadAsAsync<List<User>>();
+                Console.WriteLine(item.Id + " " + item.Name);
             }
+
+            Console.ReadLine();
         }
 
-        return users;
+        static async Task<List<User>> GetUsers()
+        {
+            var users = new List<User>();
+
+            using (HttpClient client = new HttpClient())
+            {
+                client.BaseAddress = new Uri("http://localhost:54741/");
+                client.DefaultRequestHeaders.Accept.Clear();
+                client.DefaultRequestHeaders.Accept.Add(new System.Net.Http.Headers.MediaTypeWithQualityHeaderValue("application/json"));
+
+                HttpResponseMessage response = await client.GetAsync("api/user");
+                response.EnsureSuccessStatusCode();
+                if (response.IsSuccessStatusCode)
+                {
+                    users = await response.Content.ReadAsAsync<List<User>>();
+                }
+            }
+
+            return users;
+        }
     }
-}
 ```
 
 We need to change package.json in console app like following.
