@@ -1,20 +1,17 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.25420.1
+# Visual Studio 15
+VisualStudioVersion = 15.0.26403.7
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{9A73ECF1-1D6D-48C7-8635-5CD2BD18E42A}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{44B739C2-8426-430D-BEA2-E21B14BACE93}"
-	ProjectSection(SolutionItems) = preProject
-		global.json = global.json
-	EndProjectSection
 EndProject
-Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "RestAPISample.Web", "src\RestAPISample.Web\RestAPISample.Web.xproj", "{D7FA58B3-B88F-4ECC-8441-2100B5FBE3CB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RestAPISample.Web", "src\RestAPISample.Web\RestAPISample.Web.csproj", "{D7FA58B3-B88F-4ECC-8441-2100B5FBE3CB}"
 EndProject
-Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "RestAPISample.Client.ConsoleApp", "src\RestAPISample.Client.ConsoleApp\RestAPISample.Client.ConsoleApp.xproj", "{2B8E5BA4-24A1-4940-A8F7-A0F8CE342ABF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RestAPISample.Client.ConsoleApp", "src\RestAPISample.Client.ConsoleApp\RestAPISample.Client.ConsoleApp.csproj", "{2B8E5BA4-24A1-4940-A8F7-A0F8CE342ABF}"
 EndProject
-Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "RestAPISample.Domain", "src\RestAPISample.Domain\RestAPISample.Domain.xproj", "{83974437-8E3F-494D-B81F-740979481BB4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RestAPISample.Domain", "src\RestAPISample.Domain\RestAPISample.Domain.csproj", "{83974437-8E3F-494D-B81F-740979481BB4}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

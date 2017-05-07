@@ -10,13 +10,7 @@ namespace RestAPISample.Client.ConsoleApp
     {
         public static void Main(string[] args)
         {
-            HttpClient client = new HttpClient();
-
-            client.BaseAddress = new Uri("http://localhost:54741/");
-            client.DefaultRequestHeaders.Accept.Clear();
-            client.DefaultRequestHeaders.Accept.Add(new System.Net.Http.Headers.MediaTypeWithQualityHeaderValue("application/json"));
-
-            var users = GetUsers(client);
+            var users = GetUsers();
 
             foreach (var item in users.Result)
             {
@@ -26,12 +20,16 @@ namespace RestAPISample.Client.ConsoleApp
             Console.ReadLine();
         }
 
-        static async Task<List<User>> GetUsers(HttpClient client)
+        static async Task<List<User>> GetUsers()
         {
             var users = new List<User>();
 
-            using (client)
+            using (HttpClient client = new HttpClient())
             {
+                client.BaseAddress = new Uri("http://localhost:54741/");
+                client.DefaultRequestHeaders.Accept.Clear();
+                client.DefaultRequestHeaders.Accept.Add(new System.Net.Http.Headers.MediaTypeWithQualityHeaderValue("application/json"));
+
                 HttpResponseMessage response = await client.GetAsync("api/user");
                 response.EnsureSuccessStatusCode();
                 if (response.IsSuccessStatusCode)
